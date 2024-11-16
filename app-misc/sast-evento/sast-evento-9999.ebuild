@@ -59,8 +59,8 @@ src_configure() {
 }
 
 src_install() {
+	default
 	newicon "${S}/ui/assets/image/icon/evento.png" ${PN}.png
-
 	make_desktop_entry ${PN} "SAST Evento"
 }
 
