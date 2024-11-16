@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit cmake xdg xdg-utils
+inherit cmake xdg xdg-utils desktop
 
 DESCRIPTION="An event management system for SAST."
 HOMEPAGE="https://evento.sast.fun"
@@ -56,6 +56,11 @@ src_configure() {
 	sed -i "0,/beast/s///;0,/process/s///" CMakeLists.txt 3rdpart/sast-link-cxx-sdk/CMakeLists.txt || die
 	sed -i "/Boost::beast/d;/Boost::process/d" 3rdpart/sast-link-cxx-sdk/CMakeLists.txt src/CMakeLists.txt || die
 	cmake_src_configure
+
+	doicon "${S}/ui/assets/image/icon/evento.png" "${S}/ui/assets/image/icon/evento.svg"
+
+	make_desktop_entry "SAST Evento"
+
 }
 
 pkg_postinst() {
