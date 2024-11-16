@@ -59,7 +59,7 @@ src_configure() {
 
 	doicon "${S}/ui/assets/image/icon/evento.png" "${S}/ui/assets/image/icon/evento.svg"
 
-	make_desktop_entry "SAST Evento"
+	make_desktop_entry sast-evento "SAST Evento"
 
 }
 
