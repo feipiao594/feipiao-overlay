@@ -61,7 +61,7 @@ src_configure() {
 src_install() {
 	cmake_src_install
 	newicon "${S}/ui/assets/image/icon/evento.png" ${PN}.png
-	make_desktop_entry ${PN} "SAST Evento"
+	make_desktop_entry ${PN} "SAST Evento" "" "" "Categories=Internet;Office;"
 }
 
 pkg_postinst() {
