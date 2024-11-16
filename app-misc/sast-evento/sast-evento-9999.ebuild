@@ -56,11 +56,12 @@ src_configure() {
 	sed -i "0,/beast/s///;0,/process/s///" CMakeLists.txt 3rdpart/sast-link-cxx-sdk/CMakeLists.txt || die
 	sed -i "/Boost::beast/d;/Boost::process/d" 3rdpart/sast-link-cxx-sdk/CMakeLists.txt src/CMakeLists.txt || die
 	cmake_src_configure
+}
 
+src_install() {
 	newicon "${S}/ui/assets/image/icon/evento.png" ${PN}.png
 
 	make_desktop_entry ${PN} "SAST Evento"
-
 }
 
 pkg_postinst() {
