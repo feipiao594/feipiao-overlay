@@ -57,9 +57,9 @@ src_configure() {
 	sed -i "/Boost::beast/d;/Boost::process/d" 3rdpart/sast-link-cxx-sdk/CMakeLists.txt src/CMakeLists.txt || die
 	cmake_src_configure
 
-	doicon "${S}/ui/assets/image/icon/evento.png" "${S}/ui/assets/image/icon/evento.svg"
+	newicon "${S}/ui/assets/image/icon/evento.png" ${PN}.png
 
-	make_desktop_entry sast-evento "SAST Evento"
+	make_desktop_entry ${PN} "SAST Evento"
 
 }
 
