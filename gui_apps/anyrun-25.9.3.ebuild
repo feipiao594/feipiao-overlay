@@ -413,3 +413,50 @@ LICENSE+="
 "
 SLOT="0"
 KEYWORDS="~amd64"
+
+DEPEND="
+		gui-libs/gtk-layer-shell
+		x11-libs/gtk+:3
+		x11-libs/pango
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf:2
+		dev-libs/glib:2
+		|| ( dev-lang/rust dev-lang/rust-bin )
+		"
+RDEPEND="${DEPEND}"
+BDEPEND=""
+
+
+QA_FLAGS_IGNORED="usr/bin/${PN}"  
+
+src_install() {
+	cargo_src_install --path "./anyrun"
+	
+	einfo "Installing examples /usr/share/${PN}/examples"
+	insinto "/usr/share/${PN}/examples"
+	doins examples/config.ron
+	doins anyrun/res/style.css
+	
+	for L in $(find target/release/ -maxdepth 1 -type f -name '*.so'); do
+		einfo "Installing plugin: $(basename "${L}")"
+		
+		exeinto "/usr/share/${PN}/plugins"
+		doexe "${L}"
+		
+		exeinto "/etc/${PN}/plugins"
+		doexe "${L}"
+	done
+	
+	einfo "Installing default CSS to /etc/${PN}"
+	insinto "/etc/${PN}"
+	doins anyrun/res/style.css
+}
+
+pkg_postinst() {
+	elog "Plugins were installed into the /etc/${PN}/plugins and example config was"
+	elog "placed into /usr/share/${PN}"
+	elog " "
+	elog "You may want to use them using following commands:"
+	elog "  mkdir -p ~/.config/${PN}"
+	elog "  cp /usr/share/${PN}/examples/config.ron ~/.config/${PN}/config.ron"
+}
