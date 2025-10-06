@@ -49,8 +49,8 @@ CRATES="
 	chrono-humanize@0.1.2
 	chrono-tz@0.5.3
 	chrono@0.4.41
-	clap@4.5.48
-	clap_builder@4.5.48
+	clap@4.5.45
+	clap_builder@4.5.47
 	clap_derive@4.5.47
 	clap_lex@0.7.5
 	colorchoice@1.0.4
@@ -402,7 +402,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo
 
-S="${WORKDIR}/${P}/anyrun"
+S="${WORKDIR}/${P}"
 SRC_URI="
 	https://github.com/anyrun-org/anyrun/archive/refs/tags/v${PV}.zip -> ${P}.zip
 	${CARGO_CRATE_URIS}
