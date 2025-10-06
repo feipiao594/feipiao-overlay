@@ -48,7 +48,7 @@ CRATES="
 	cfg_aliases@0.2.1
 	chrono-humanize@0.1.2
 	chrono-tz@0.5.3
-	chrono@0.4.42
+	chrono@0.4.41
 	clap@4.5.48
 	clap_builder@4.5.48
 	clap_derive@4.5.47
