@@ -111,8 +111,8 @@ CRATES="
 	graphene-sys@0.20.10
 	gsk4-sys@0.9.6
 	gsk4@0.9.6
-	gtk4-layer-shell-sys@0.3.0
 	gtk4-layer-shell@0.5.0
+	gtk4-layer-shell-sys@0.3.0
 	gtk4-macros@0.9.5
 	gtk4-sys@0.9.6
 	gtk4@0.9.7
