@@ -5,6 +5,9 @@
 
 EAPI=8
 
+DESCRIPTION="A wayland native krunner-like runner, made with customizability in mind"
+HOMEPAGE="https://github.com/Kirottu/anyrun"
+
 CRATES="
 	abi_stable@0.11.3
 	abi_stable_derive@0.11.3
@@ -399,8 +402,6 @@ declare -A GIT_CRATES=(
 
 inherit cargo
 
-DESCRIPTION=""
-HOMEPAGE=""
 SRC_URI="
 	${CARGO_CRATE_URIS}
 "
