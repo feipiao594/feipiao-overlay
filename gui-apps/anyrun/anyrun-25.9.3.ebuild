@@ -402,6 +402,7 @@ declare -A GIT_CRATES=(
 
 inherit cargo
 
+S="${WORKDIR}/${P}/anyrun"
 SRC_URI="
 	https://github.com/anyrun-org/anyrun/archive/refs/tags/v${PV}.zip -> ${P}.zip
 	${CARGO_CRATE_URIS}
